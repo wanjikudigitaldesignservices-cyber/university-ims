@@ -17,7 +17,7 @@ export default function Navbar() {
       <nav className={styles.navbar}>
         <Link href="/" className={styles.brand}>
           <div className={styles.logoIcon}>K</div>
-          University of Kabianga
+          University of Nexus
         </Link>
         
         <div className={styles.navLinks}>

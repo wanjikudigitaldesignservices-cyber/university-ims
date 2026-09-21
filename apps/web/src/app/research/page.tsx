@@ -4,7 +4,7 @@ export default function researchPage() {
   return (
     <main className={styles.container}>
       <h1 className={styles.title}>Research</h1>
-      <p className={styles.subtitle}>University of Kabianga</p>
+      <p className={styles.subtitle}>University of Nexus</p>
       
       <div className={styles.contentBox}>
         <div className={styles.icon}>🔬</div>

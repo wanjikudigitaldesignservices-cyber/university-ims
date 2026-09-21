@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "University of Kabianga | Shape the Future",
+  title: "University of Nexus | Shape the Future",
   description: "A world-class institution dedicated to academic excellence and research.",
 };
 

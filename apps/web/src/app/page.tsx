@@ -11,7 +11,7 @@ export default function Home() {
           <div className={styles.badge}>Admissions Open 2026/2027</div>
           
           <h1 className={styles.title}>
-            Shape the Future at<br />University of Kabianga
+            Shape the Future at<br />University of Nexus
           </h1>
           
           <p className={styles.subtitle}>
