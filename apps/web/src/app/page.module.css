@@ -5,15 +5,33 @@
   justify-content: center;
   position: relative;
   overflow: hidden;
-  background: radial-gradient(circle at center, #f1f5f9 0%, var(--background) 100%);
   padding-top: 100px;
+}
+
+.heroBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+}
+
+.heroOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.4) 0%, rgba(15, 23, 42, 0.9) 100%);
+  z-index: -1;
 }
 
 .glow {
   position: absolute;
   width: 800px;
   height: 800px;
-  background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -37,14 +55,16 @@
 .badge {
   display: inline-block;
   padding: 0.4rem 1.2rem;
-  background: rgba(59, 130, 246, 0.1);
-  color: var(--accent);
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
   border-radius: 9999px;
   font-size: 0.85rem;
   font-weight: 700;
   margin-bottom: 2rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .title {
@@ -52,21 +72,27 @@
   font-weight: 800;
   line-height: 1.1;
   margin-bottom: 1.5rem;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  color: white;
+  letter-spacing: -0.04em;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.titleHighlight {
+  background: linear-gradient(135deg, #93c5fd 0%, #3b82f6 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  letter-spacing: -0.04em;
 }
 
 .subtitle {
   font-size: clamp(1.1rem, 2vw, 1.25rem);
-  color: #475569;
+  color: #f1f5f9;
   margin-bottom: 3rem;
   font-weight: 400;
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
   line-height: 1.7;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .actions {
@@ -98,15 +124,15 @@
 }
 
 .secondaryBtn {
-  background-color: white;
-  color: var(--primary);
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
   padding: 1.1rem 2.5rem;
   border-radius: 9999px;
   font-weight: 600;
   font-size: 1.1rem;
   transition: all 0.3s ease;
-  border: 1px solid #e2e8f0;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(8px);
   text-decoration: none;
   display: inline-flex;
   align-items: center;
@@ -114,38 +140,103 @@
 }
 
 .secondaryBtn:hover {
-  background-color: #f8fafc;
+  background-color: rgba(255, 255, 255, 0.2);
   transform: translateY(-3px);
-  border-color: #cbd5e1;
+}
+
+/* Discover Section */
+.discover {
+  padding: 6rem 2rem;
+  background-color: white;
+}
+
+.discoverContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.sectionSubtitle {
+  font-size: 1.1rem;
+  color: #64748b;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.card {
+  border-radius: 24px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+  height: 400px;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+.cardImage {
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.card:hover .cardImage {
+  transform: scale(1.05);
+}
+
+.cardOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 3rem 2rem 2rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+  color: white;
+}
+
+.cardTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.cardText {
+  font-size: 0.95rem;
+  color: #cbd5e1;
 }
 
 @media (prefers-color-scheme: dark) {
-  .hero {
-    background: radial-gradient(circle at center, #0f172a 0%, var(--background) 100%);
+  .discover {
+    background-color: var(--background);
   }
-  
-  .glow {
-    background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
-  }
-
-  .title {
-    background: linear-gradient(135deg, #f8fafc 0%, #93c5fd 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  .subtitle {
-    color: #cbd5e1;
-  }
-
-  .secondaryBtn {
-    background-color: rgba(255, 255, 255, 0.03);
+  .sectionTitle {
     color: white;
-    border-color: rgba(255, 255, 255, 0.1);
   }
-  
-  .secondaryBtn:hover {
-    background-color: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.2);
+  .sectionSubtitle {
+    color: #94a3b8;
   }
 }
