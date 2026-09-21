@@ -1,0 +1,26 @@
+{
+  "name": "@university/events",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc -w",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@nestjs/microservices": "^10.0.0",
+    "@upstash/qstash": "^2.6.0",
+    "@university/contracts": "workspace:*",
+    "nats": "^2.29.3"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.5",
+    "@nestjs/common": "^10.0.0",
+    "@nestjs/core": "^10.0.0"
+  },
+  "peerDependencies": {
+    "@nestjs/common": "^10.0.0",
+    "@nestjs/core": "^10.0.0"
+  }
+}
