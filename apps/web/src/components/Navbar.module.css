@@ -1,0 +1,134 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+}
+
+.topbar {
+  background-color: var(--primary);
+  color: #f8fafc;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0.5rem 4rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  gap: 1.5rem;
+}
+
+.topbarLink {
+  transition: opacity 0.2s, color 0.2s;
+}
+
+.topbarLink:hover {
+  opacity: 0.8;
+  color: var(--accent-hover);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 4rem;
+  background-color: var(--nav-bg);
+  backdrop-filter: blur(var(--nav-backdrop-blur));
+  -webkit-backdrop-filter: blur(var(--nav-backdrop-blur));
+  border-bottom: 1px solid var(--nav-border);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  transition: padding 0.3s ease;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 800;
+  font-size: 1.75rem;
+  color: var(--primary);
+  letter-spacing: -0.05em;
+  text-decoration: none;
+}
+
+.logoIcon {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: black;
+}
+
+.navLinks {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+}
+
+.navItem {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--foreground);
+  position: relative;
+  transition: color 0.3s ease;
+  padding: 0.5rem 0;
+}
+
+.navItem::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--accent);
+  transition: width 0.3s ease;
+}
+
+.navItem:hover {
+  color: var(--accent);
+}
+
+.navItem:hover::after {
+  width: 100%;
+}
+
+.ctaButton {
+  background-color: var(--accent);
+  color: white;
+  padding: 0.8rem 1.75rem;
+  border-radius: 9999px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 14px 0 rgba(59, 130, 246, 0.39);
+  text-decoration: none;
+  display: inline-block;
+}
+
+.ctaButton:hover {
+  background-color: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.6);
+}
+
+@media (max-width: 1024px) {
+  .topbar {
+    display: none; /* Hide topbar on smaller screens */
+  }
+  
+  .navbar {
+    padding: 1rem 2rem;
+  }
+  
+  .navLinks {
+    display: none; /* Mobile menu needed in reality, hiding for prototype */
+  }
+}
